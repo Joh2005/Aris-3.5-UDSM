@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            overflow: hidden; /* Prevent scrollbar for confetti */
+        }
+        .welcome-message {
+            font-size: 36px;
+            color: #333;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .kind-words {
+            font-size: 24px;
+            color: #555;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .button-link {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 20px;
+            color: white;
+            background-color: #007bff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+        .button-link:hover {
+            background-color: #0056b3;
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            animation: fall 4s linear infinite;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        .container {
+            background-color: peachpuff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 1500px;
+            text-align: center;
+            font-size: 40px;
+            margin-top: 20px;
+        }
+        .form-group {
+            margin-bottom: 15px;
+            font-size: 30px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 25px;
+        }
+        .form-group .checkbox {
+            display: flex;
+            align-items: center;
+            font-size: 25px;
+        }
+        .form-group .checkbox input {
+            margin-right: 5px;
+            font-size: 25px;
+        }
+        .form-group .checkbox label {
+            margin: 0;
+            font-size: 25px;
+        }
+        .error-message {
+            color: red;
+            margin-bottom: 10px;
+            display: none;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            border: none;
+            border-radius: 4px;
+            color: white;
+            font-size: 25px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-message">Welcome to University of Dar es Salaam</div>
+    <div class="kind-words">We're thrilled to have you join the ARIS 3.5 community. Your journey here will be filled with exciting opportunities and unforgettable experiences. Let's make the most of it together!</div>
+
+    <div class="container">
+        <h2>Create ARIS 3.0 Staff Account</h2>
+        <form id="registration-form">
+            <div class="form-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first-name" required>
+            </div>
+            <div class="form-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last-name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Your E-mail</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Create Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label for="repeat-password">Repeat Password</label>
+                <input type="password" id="repeat-password" name="repeat-password" required>
+            </div>
+            <div class="form-group checkbox">
+                <input type="checkbox" id="terms" name="terms" required>
+                <label for="terms">I accept the <a href="service.html">terms of service</a></label>
+            </div>
+            <div class="error-message" id="error-message"></div>
+            <a href="register.html">Register ➔</a>
+        </form>
+        <div class="login">
+            <p>Have an account? <a href="login.html">Login</a></p>
+        </div>
+    </div>
+
+   
+
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const firstName = document.getElementById('first-name').value.trim();
+            const lastName = document.getElementById('last-name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value;
+            const repeatPassword = document.getElementById('repeat-password').value;
+            const terms = document.getElementById('terms').checked;
+            const errorMessage = document.getElementById('error-message');
+
+            if (!firstName || !lastName || !email || !password || !repeatPassword || !terms) {
+                errorMessage.textContent = "Please fill in all the required details.";
+                errorMessage.style.display = 'block';
+            } else if (!validatePassword(password)) {
+                errorMessage.textContent = "The password should contain at least 8 characters, the first letter should be a capital letter, and include at least one digit.";
+                errorMessage.style.display = 'block';
+            } else if (password !== repeatPassword) {
+                errorMessage.textContent = "Passwords do not match.";
+                errorMessage.style.display = 'block';
+            } else {
+                // Show success message and redirect to the register.html page
+                alert("Successfully registered!");
+                window.location.href = 'register.html';
+            }
+        }
+
+        function validatePassword(password) {
+            const hasUpperCase = /^[A-Z]/.test(password);
+            const hasDigit = /\d/.test(password);
+            const isValidLength = password.length >= 8;
+            return hasUpperCase && hasDigit && isValidLength;
+        }
+
+        // Generate confetti
+        for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.left = `${Math.random() * 100}vw`;
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            document.body.appendChild(confetti);
+        }
+    </script>
+</body>
+</html>

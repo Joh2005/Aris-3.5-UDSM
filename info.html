@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-up ports</title>
+    <style>
+        body {
+            font-size: 50px;
+            font-family: Arial, sans-serif;
+            background-color: #ffe6f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: aqua;
+        }
+        .container {
+            background-color: #fff;
+            padding: 100px;
+            border-radius: 60px;
+            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
+            width: 500%;
+            max-width: 900px;
+        }
+        .container img {
+            width: 120px;
+            height: 90px;
+        }
+
+        .container h1 {
+            font-size: 30px;
+            margin-bottom: 15px;
+        }
+
+        .container p {
+            font-size: 20px;
+            margin-bottom: 25px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12PX;
+            background-color: #3f8efc;
+            color: black;
+            border: none;
+            border-radius: 8px;
+            font-size: 30px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .button div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .button div img {
+            width: 70px;
+            height: 60px;
+            margin-bottom: 20px;
+        }
+
+        .button div span {
+            font-size: 40px;
+        }
+        h6 {
+            text-align: center;
+            justify-content: center;
+            display: flex;
+        }
+        img {
+            border-radius: 20%;
+            border-top: 1px solid rgb(255, 255, 255);
+            border-bottom: 1px solid rgb(255, 255, 255);
+            display: inherit;
+            text-align: center;
+            justify-content: center;
+        }
+        .option {
+            margin: 20px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .option img {
+            width: 200px;
+            height: auto;
+            margin-bottom: 20px;
+        } 
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Sign-up ports</h2>
+        <h6>Please specify if you're a Student or Staff</h6>
+        <div class="option">
+            <img src="img/student icon.jpg" width="800" height="400" alt="image" loading="lazy">
+            <a href="student.html" class="btn" style="font-size: 25px; border-radius: 10px; padding: 15px 30px; background-color: #007bff; color: white; text-decoration: none; display: inline-block;" onclick="resetpassword(event)">STUDENT ➔</a>
+        </div>
+        <h6> OR </h6>
+        <div class="option">
+            <img src="img/staff icon.jpg" width="800" height="400" alt="image" loading="lazy">
+            <a href="staff.html" class="btn" style="font-size: 25px; border-radius: 10px; padding: 15px 30px; background-color: antiquewhite; color:white ; text-decoration: none; display: inline-block;" onclick="resetpassword(event)">STAFF ➔</a>
+        </div>
+    </div>
+</body>
+
+</html>
+
+</html>

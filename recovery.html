@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Recovery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 120px;
+            border-radius: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 150%;
+            max-width: 500px;
+            font-size: 30px;
+        }
+        .key-icon {
+            font-size: 50px;
+            color: orange;
+        }
+        .title {
+            font-size: 30px;
+            margin: 10px 0;
+        }
+        .subtitle {
+            font-size: 20px;
+            color: gray;
+            margin-bottom: 20px;
+        }
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .reset-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .reset-button:hover {
+            background-color: #0056b3;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .input-group input {
+            width: 90%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 25px;
+            padding-right: 30px; /* Space for the icon */
+        }
+        .input-group span {
+            font-size: 25px;
+            color: #ff6f00;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }    
+        input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 25px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+            background-color: #fafafa;
+        }    
+        .error-message {
+            color: red;
+            margin-bottom: 10px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="key-icon">🔑</div>
+        <div class="title">Password recovery</div>
+        <div class="subtitle">3/4 Change Password</div>
+        <div class="error-message" id="error-message">Error message here</div>
+        <input type="password" id="new-password" class="input-field" placeholder="Type Your new password">
+        <input type="password" id="repeat-password" class="input-field" placeholder="Repeat Your new password">
+        <a href="dashboard.html" class="btn" style="font-size: 25px; border-radius: 5px; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; display: inline-block;" onclick="resetpassword(event)">Reset Password ➔</a>
+    </div>
+
+    <script>
+        function resetpassword(event) {
+            event.preventDefault(); // Prevent the default link behavior
+
+            const newPassword = document.getElementById('new-password').value;
+            const repeatPassword = document.getElementById('repeat-password').value;
+            const errorMessage = document.getElementById('error-message');
+
+            if (!validatePassword(newPassword)) {
+                errorMessage.textContent = "The password should contain at least 8 characters, the first letter should be a capital letter, and include at least one digit.";
+                errorMessage.style.display = 'block';
+            } else if (newPassword !== repeatPassword) {
+                errorMessage.textContent = "Passwords do not match.";
+                errorMessage.style.display = 'block';
+            } else {
+                // Redirect to the dashboard.html page if validation passes
+                window.location.href = 'dashboard.html';
+            }
+        }
+
+        function validatePassword(password) {
+            const hasUpperCase = /^[A-Z]/.test(password);
+            const hasDigit = /\d/.test(password);
+            const isValidLength = password.length >= 8;
+            return hasUpperCase && hasDigit && isValidLength;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: orchid;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 100px;
+            border-radius: 30px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 600%;
+            max-width: 1000px;
+            font-size: 40px;
+            height: 500%;
+            max-height: 1000px;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: brown;
+
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .table th,
+        .table td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .table th {
+            background-color: #e0ffe0;
+        }
+
+        .table tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .table th {
+            text-align: left;
+        }
+
+        .plus-icon {
+            color: #007bff;
+            cursor: pointer;
+        }
+
+        .results {
+            display: none;
+        }
+        button {
+            background-color: aqua;
+            color: green;
+            font-size: 20px;
+        }
+    </style>
+    <script>
+        function toggleResults(id) {
+            var x = document.getElementById(id);
+            if (x.style.display === "none") {
+                x.style.display = "table-row";
+            } else {
+                x.style.display = "none";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Course List</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>S/N</th>
+                    <th>Course Code</th>
+                    <th>Course Title</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <h1>1st Semester Courses</h1>
+                <tr>
+                    <td>1</td>
+                    <td>CL 111</td>
+                    <td>Communication Skills for</td>
+                    <td><button onclick="toggleResults('results1')">Show Results</button></td>
+                </tr>
+                <tr id="results1" class="results">
+                    <td colspan="4">
+                        Test: 85%, Quiz: 90%, Assignment: 95%
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>CS 151</td>
+                    <td>Computer Organization</td>
+                    <td><button onclick="toggleResults('results2')">Show Results</button></td>
+                </tr>
+                <tr id="results2" class="results">
+                    <td colspan="4">
+                        Test: 88%, Quiz: 92%, Assignment: 91%
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>CS 174</td>
+                    <td>Programming in C</td>
+                    <td><button onclick="toggleResults('results3')">Show Results</button></td>
+                </tr>
+                <tr id="results3" class="results">
+                    <td colspan="4">
+                        Test: 78%, Quiz: 85%, Assignment: 89%
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>DS 112</td>
+                    <td>Development Perspectives</td>
+                    <td><button onclick="toggleResults('results4')">Show Results</button></td>
+                </tr>
+                <tr id="results4" class="results">
+                    <td colspan="4">
+                        Test: 92%, Quiz: 88%, Assignment: 90%
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>IS 162</td>
+                    <td>Introduction to Information</td>
+                    <td><button onclick="toggleResults('results5')">Show Results</button></td>
+                </tr>
+                <tr id="results5" class="results">
+                    <td colspan="4">
+                        Test: 84%, Quiz: 87%, Assignment: 90%
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>MT 100</td>
+                    <td>Foundations of Analysis</td>
+                    <td><button onclick="toggleResults('results6')">Show Results</button></td>
+                </tr>
+                <tr id="results6" class="results">
+                    <td colspan="4">
+                        Test: 86%, Quiz: 89%, Assignment: 85%
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container">
+        <h2>Course List</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>S/N</th>
+                    <th>Course Code</th>
+                    <th>Course Title</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <h1>2nd Semester Courses</h1>
+                <tr>
+                    <td>1</td>
+                    <td>CS 173</td>
+                    <td>Business Computer Concepts</td>
+                    <td><button onclick="toggleResults('results7')">Show Results</button></td>
+                </tr>
+                <tr id="results7" class="results">
+                    <td colspan="4">
+                        Test: 83%, Quiz: 85%, Assignment: 88%
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>CS 175</td>
+                    <td>Programming in Java</td>
+                    <td><button onclick="toggleResults('results8')">Show Results</button></td>
+                </tr>
+                <tr id="results8" class="results">
+                    <td colspan="4">
+                        Test: 90%, Quiz: 92%, Assignment: 93%
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>DS 113</td>
+                    <td>Development Perspectives</td>
+                    <td><button onclick="toggleResults('results9')">Show Results</button></td>
+                </tr>
+                <tr id="results9" class="results">
+                    <td colspan="4">
+                        Test: 87%, Quiz: 88%, Assignment: 90%
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>IS 143</td>
+                    <td>Discrete Structures</td>
+                    <td><button onclick="toggleResults('results10')">Show Results</button></td>
+                </tr>
+                <tr id="results10" class="results">
+                    <td colspan="4">
+                        Test: 91%, Quiz: 89%, Assignment: 88%
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>IS 158</td>
+                    <td>Computer Hardware and</td>
+                    <td><button onclick="toggleResults('results11')">Show Results</button></td>
+                </tr>
+                <tr id="results11" class="results">
+                    <td colspan="4">
+                        Test: 85%, Quiz: 88%, Assignment: 90%
+                    </td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>IS 171</td>
+                    <td>Introduction to Computer</td>
+                    <td><button onclick="toggleResults('results12')">Show Results</button></td>
+                </tr>
+                <tr id="results12" class="results">
+                    <td colspan="4">
+                        Test: 88%, Quiz: 87%, Assignment: 89%
+                    </td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>IS 181</td>
+                    <td>Web Programming</td>
+                    <td><button onclick="toggleResults('results13')">Show Results</button></td>
+                </tr>
+                <tr id="results13" class="results">
+                    <td colspan="4">
+                        Test: 92%, Quiz: 91%, Assignment: 94%
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>

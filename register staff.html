@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+            overflow: hidden; /* Prevent scrollbar for confetti */
+        }
+        .welcome-message {
+            font-size: 36px;
+            color: #333;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .kind-words {
+            font-size: 24px;
+            color: #555;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .button-link {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 20px;
+            color: white;
+            background-color: #007bff;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background-color 0.3s ease;
+        }
+        .button-link:hover {
+            background-color: #0056b3;
+        }
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: #f00;
+            animation: fall 4s linear infinite;
+        }
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        .introduction {
+            font-size: 36px;
+            color: #333;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-message">Welcome to University of Dar es Salaam</div>
+    <img src="img/udsm logo.jpg" width="1000" height="500" alt="image" loading="lazy">
+    <div class="kind-words">You are the staff member of university of Dar es salaam (UDSM)</div>
+    <div class="kind-words">We're thrilled to have you join the ARIS 3.5 community. Your journey here will be filled with exciting opportunities and unforgettable experiences. Let's make the most of it together!</div>
+    <a href="aris.html" class="button-link"> WELCOME ARIS 3.5 UDSM ➔</a>
+
+    <script>
+        // Generate confetti
+        for (let i = 0; i < 100; i++) {
+            const confetti = document.createElement('div');
+            confetti.classList.add('confetti');
+            confetti.style.left = `${Math.random() * 100}vw`;
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            confetti.style.animationDuration = `${Math.random() * 3 + 2}s`;
+            document.body.appendChild(confetti);
+        }
+    </script>
+</body>
+</html>
