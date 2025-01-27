@@ -6,36 +6,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Profile</title>
     <style>
-       body {
+        body {
             font-family: Arial, sans-serif;
             background-color: aquamarine;
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         .container {
-            background-color: chocolate; /* Set background color to chocolate */
+            background-color: chocolate;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            width: 120%;
-            max-width: 1500px;
-            margin-bottom: 50px; /* Adjusted margin-bottom for more space */
+            width: 100%;
+            max-width: 1200px;
+            margin-bottom: 50px;
             font-size: 19px;
         }
+
         .header {
             background-color: #007bff;
             color: #fff;
             padding: 10px;
             text-align: center;
+            border-radius: 8px 8px 0 0;
         }
 
         .profile-pic {
-            width: 100px;
-            height: 100px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
             overflow: hidden;
             margin: 0 auto;
@@ -84,14 +88,57 @@
         .details th {
             background-color: #f4f4f4;
         }
+
         p {
-            display: flex;
             text-align: center;
-            justify-content: center;
-            color : black;
+            color: black;
         }
-        h1,h2 {
+
+        h1,
+        h2 {
             text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                font-size: 17px;
+            }
+
+            .profile-pic {
+                width: 120px;
+                height: 120px;
+            }
+
+            .details th,
+            .details td {
+                padding: 8px;
+            }
+
+            p {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 10px;
+                font-size: 15px;
+            }
+
+            .profile-pic {
+                width: 100px;
+                height: 100px;
+            }
+
+            .details th,
+            .details td {
+                padding: 6px;
+            }
+
+            p {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -99,13 +146,12 @@
 <body>
     <div class="container">
         <div class="header">
-            <img src="img/udsm logo.jpg" width="700" height="300" alt="image" loading="lazy">
+            <img src="img/udsm logo.jpg" width="700" height="300" alt="UDSM Logo" loading="lazy">
             <h1>ARIS 3.5 UDSM</h1>
             <h2>Student Profile</h2>
         </div>
         <div class="profile-pic">
-            <img src="img/logo.jpg" width="7000" height="300" alt="Profile Picture">
-            <!-- Add your profile picture path here -->
+            <img src="img/logo.jpg" alt="Profile Picture">
         </div>
         <div class="profile-info">
             <h2>Zakaria, Joshua Sebastian</h2>
@@ -155,14 +201,18 @@
                     <td>Full Year</td>
                 </tr>
             </table>
-            <h2> RESULTS </h2>
-            <p><a href="semister-wise.html" class="btn"
-                    style= "font-size: 25px;  border-radius: 5px; padding: 15px 30px; background-color: #007bff; color: white; text-decoration: none; display: inline-block;"
-                    onclick="validateForm(event)">semister-wise ➔</a>
+            <h2>RESULTS</h2>
+            <p>
+                <a href="semister-wise.html" class="btn"
+                    style="font-size: 25px; border-radius: 5px; padding: 15px 30px; background-color: #007bff; color: white; text-decoration: none; display: inline-block;">
+                    Semester-wise ➔
+                </a>
             </p>
-            <p> <a href="course-wise.html" class="btn"
-                    style="font-size: 25px; border-radius: 5px; padding: 15px 30px; background-color: #007bff; color: white; text-decoration: none; display: inline-block;"
-                    onclick="validateForm(event)">Course-wise ➔</a>
+            <p>
+                <a href="course-wise.html" class="btn"
+                    style="font-size: 25px; border-radius: 5px; padding: 15px 30px; background-color: #007bff; color: white; text-decoration: none; display: inline-block;">
+                    Course-wise ➔
+                </a>
             </p>
         </div>
     </div>
