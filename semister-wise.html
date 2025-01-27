@@ -12,21 +12,21 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
         }
 
         .container {
             background-color: white;
-            padding: 100px;
+            padding: 20px;
             border-radius: 30px;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
-            width: 600%;
+            width: 100%;
             max-width: 1000px;
-            font-size: 40px;
-            height: 500%;
-            max-height: 1000px;
+            font-size: 1em;
         }
 
         h1,
@@ -34,7 +34,6 @@
             text-align: center;
             margin-bottom: 20px;
             color: brown;
-
         }
 
         .table {
@@ -50,28 +49,65 @@
 
         .table th {
             background-color: #e0ffe0;
+            text-align: left;
         }
 
         .table tr:hover {
             background-color: #f1f1f1;
         }
 
-        .table th {
-            text-align: left;
-        }
-
-        .plus-icon {
-            color: #007bff;
-            cursor: pointer;
-        }
-
         .results {
             display: none;
         }
+
         button {
             background-color: aqua;
             color: green;
-            font-size: 20px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                font-size: 0.875em;
+            }
+
+            h1,
+            h2 {
+                font-size: 1.5em;
+            }
+
+            button {
+                font-size: 0.875em;
+                padding: 6px 10px;
+            }
+        }
+
+        @media (max-width: 350px) {
+            .container {
+                padding: 10px;
+                font-size: 0.50em;
+            }
+
+            h1,
+            h2 {
+                font-size: 1.25em;
+            }
+
+            button {
+                font-size: 0.75em;
+                padding: 5px 8px;
+            }
         }
     </style>
     <script>
@@ -88,7 +124,7 @@
 
 <body>
     <div class="container">
-        <h2>Course List</h2>
+        <h2>1st Semester Courses</h2>
         <table class="table">
             <thead>
                 <tr>
@@ -99,17 +135,14 @@
                 </tr>
             </thead>
             <tbody>
-                <h1>1st Semester Courses</h1>
                 <tr>
                     <td>1</td>
                     <td>CL 111</td>
-                    <td>Communication Skills for</td>
+                    <td>Communication Skills</td>
                     <td><button onclick="toggleResults('results1')">Show Results</button></td>
                 </tr>
                 <tr id="results1" class="results">
-                    <td colspan="4">
-                        Test: 85%, Quiz: 90%, Assignment: 95%
-                    </td>
+                    <td colspan="4">Test: 85%, Quiz: 90%, Assignment: 95%</td>
                 </tr>
                 <tr>
                     <td>2</td>
@@ -118,9 +151,7 @@
                     <td><button onclick="toggleResults('results2')">Show Results</button></td>
                 </tr>
                 <tr id="results2" class="results">
-                    <td colspan="4">
-                        Test: 88%, Quiz: 92%, Assignment: 91%
-                    </td>
+                    <td colspan="4">Test: 88%, Quiz: 92%, Assignment: 91%</td>
                 </tr>
                 <tr>
                     <td>3</td>
@@ -129,9 +160,7 @@
                     <td><button onclick="toggleResults('results3')">Show Results</button></td>
                 </tr>
                 <tr id="results3" class="results">
-                    <td colspan="4">
-                        Test: 78%, Quiz: 85%, Assignment: 89%
-                    </td>
+                    <td colspan="4">Test: 78%, Quiz: 85%, Assignment: 89%</td>
                 </tr>
                 <tr>
                     <td>4</td>
@@ -140,9 +169,7 @@
                     <td><button onclick="toggleResults('results4')">Show Results</button></td>
                 </tr>
                 <tr id="results4" class="results">
-                    <td colspan="4">
-                        Test: 92%, Quiz: 88%, Assignment: 90%
-                    </td>
+                    <td colspan="4">Test: 92%, Quiz: 88%, Assignment: 90%</td>
                 </tr>
                 <tr>
                     <td>5</td>
@@ -151,9 +178,7 @@
                     <td><button onclick="toggleResults('results5')">Show Results</button></td>
                 </tr>
                 <tr id="results5" class="results">
-                    <td colspan="4">
-                        Test: 84%, Quiz: 87%, Assignment: 90%
-                    </td>
+                    <td colspan="4">Test: 84%, Quiz: 87%, Assignment: 90%</td>
                 </tr>
                 <tr>
                     <td>6</td>
@@ -162,15 +187,13 @@
                     <td><button onclick="toggleResults('results6')">Show Results</button></td>
                 </tr>
                 <tr id="results6" class="results">
-                    <td colspan="4">
-                        Test: 86%, Quiz: 89%, Assignment: 85%
-                    </td>
+                    <td colspan="4">Test: 86%, Quiz: 89%, Assignment: 85%</td>
                 </tr>
             </tbody>
         </table>
     </div>
     <div class="container">
-        <h2>Course List</h2>
+        <h2>2nd Semester Courses</h2>
         <table class="table">
             <thead>
                 <tr>
@@ -181,7 +204,6 @@
                 </tr>
             </thead>
             <tbody>
-                <h1>2nd Semester Courses</h1>
                 <tr>
                     <td>1</td>
                     <td>CS 173</td>
@@ -189,9 +211,7 @@
                     <td><button onclick="toggleResults('results7')">Show Results</button></td>
                 </tr>
                 <tr id="results7" class="results">
-                    <td colspan="4">
-                        Test: 83%, Quiz: 85%, Assignment: 88%
-                    </td>
+                    <td colspan="4">Test: 83%, Quiz: 85%, Assignment: 88%</td>
                 </tr>
                 <tr>
                     <td>2</td>
@@ -200,9 +220,7 @@
                     <td><button onclick="toggleResults('results8')">Show Results</button></td>
                 </tr>
                 <tr id="results8" class="results">
-                    <td colspan="4">
-                        Test: 90%, Quiz: 92%, Assignment: 93%
-                    </td>
+                    <td colspan="4">Test: 90%, Quiz: 92%, Assignment: 93%</td>
                 </tr>
                 <tr>
                     <td>3</td>
@@ -211,9 +229,7 @@
                     <td><button onclick="toggleResults('results9')">Show Results</button></td>
                 </tr>
                 <tr id="results9" class="results">
-                    <td colspan="4">
-                        Test: 87%, Quiz: 88%, Assignment: 90%
-                    </td>
+                    <td colspan="4">Test: 87%, Quiz: 88%, Assignment: 90%</td>
                 </tr>
                 <tr>
                     <td>4</td>
@@ -222,20 +238,16 @@
                     <td><button onclick="toggleResults('results10')">Show Results</button></td>
                 </tr>
                 <tr id="results10" class="results">
-                    <td colspan="4">
-                        Test: 91%, Quiz: 89%, Assignment: 88%
-                    </td>
+                    <td colspan="4">Test: 91%, Quiz: 89%, Assignment: 88%</td>
                 </tr>
                 <tr>
                     <td>5</td>
                     <td>IS 158</td>
-                    <td>Computer Hardware and</td>
+                    <td>Computer Hardware</td>
                     <td><button onclick="toggleResults('results11')">Show Results</button></td>
                 </tr>
                 <tr id="results11" class="results">
-                    <td colspan="4">
-                        Test: 85%, Quiz: 88%, Assignment: 90%
-                    </td>
+                    <td colspan="4">Test: 85%, Quiz: 88%, Assignment: 90%</td>
                 </tr>
                 <tr>
                     <td>6</td>
@@ -244,24 +256,10 @@
                     <td><button onclick="toggleResults('results12')">Show Results</button></td>
                 </tr>
                 <tr id="results12" class="results">
-                    <td colspan="4">
-                        Test: 88%, Quiz: 87%, Assignment: 89%
-                    </td>
-                </tr>
-                <tr>
-                    <td>7</td>
-                    <td>IS 181</td>
-                    <td>Web Programming</td>
-                    <td><button onclick="toggleResults('results13')">Show Results</button></td>
-                </tr>
-                <tr id="results13" class="results">
-                    <td colspan="4">
-                        Test: 92%, Quiz: 91%, Assignment: 94%
-                    </td>
+                    <td colspan="4">Test: 88%, Quiz: 87%, Assignment: 89%</td>
                 </tr>
             </tbody>
         </table>
     </div>
 </body>
-
 </html>
