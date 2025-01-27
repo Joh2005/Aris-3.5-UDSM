@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Recovery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: pink;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: white;
+            padding: 120px;
+            border-radius: 30px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 150%;
+            max-width: 500px;
+            font-size: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+            width: 120%;
+            padding: 90px;
+            box-sizing: border-box;
+            border: 3px solid #ccc;
+            border-radius: 25px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            max-width: 450px;
+        }
+
+        .form-group button:hover {
+            background-color: #45a049;
+        }
+
+        .logo {
+            width: 100px;
+            margin-bottom: 20px;
+        }
+        .message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .error-message {
+            color: red;
+            margin-bottom: 20px;
+            display: none;
+        }
+        .icon {
+            font-size: 50px;
+            color: #ff6f00;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .input-group input {
+            width: 90%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 25px;
+            padding-right: 30px; /* Space for the icon */
+        }
+        .input-group span {
+            font-size: 25px;
+            color: #ff6f00;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .submit-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="message">
+            Your verification code will be sent to your Email Address shortly!
+        </div>
+        <div class="error-message" id="error-message">Please try again!</div>
+        <div class="icon">#</div>
+        <h2>Password recovery</h2>
+        <p>2/4 User Confirmation</p>
+        <div class="input-group">
+            <input type="text" id="code" placeholder="Your 5 digit code">
+            <span>#</span>
+        </div>
+        <form id="code-form" method="post" action="/send-code">
+            <div class="input-group">
+                <input type="text" id="email" placeholder="Enter your email" required>
+            </div>   
+        </form>
+        <a href="recovery.html" class="btn" style="font-size: 25px; border-radius: 5px; padding: 10px 20px; background-color: #007bff; color: white; text-decoration: none; display: inline-block;" onclick="validateForm(event)">Submit Code ➔</a>
+    </div>
+
+    <script>
+        function validateForm(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const code = document.getElementById('code').value;
+            const email = document.getElementById('email').value;
+            const errorMessage = document.getElementById('error-message');
+
+            if (validateEmail(email) && validateCode(code)) {
+                // Redirect to the recovery.html page if validation passes
+                window.location.href = 'recovery.html';
+            } else {
+                // Show error message if validation fails
+                errorMessage.style.display = 'block';
+            }
+        }
+
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(String(email).toLowerCase());
+        }
+
+        function validateCode(code) {
+            const re = /^\d{5}$/; // Example: expects a 5-digit code
+            return re.test(String(code));
+        }
+    </script>
+</body>
+</html>
