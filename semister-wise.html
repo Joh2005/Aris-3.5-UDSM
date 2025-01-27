@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Course List</title>
+    <title>Student Profile</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: orchid;
+            background-color: aquamarine;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -19,271 +18,209 @@
         }
 
         .container {
-            background-color: white;
+            background-color: chocolate;
             padding: 20px;
-            border-radius: 30px;
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             width: 100%;
-            max-width: 1000px;
-            font-size: 18px;
+            max-width: 1200px;
+            margin-bottom: 50px;
+            font-size: 1em;
+        }
+
+        .header {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .profile-pic img {
+            width: 100%;
+            height: auto;
+        }
+
+        .profile-info {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .profile-info h2 {
+            margin: 5px 0;
+        }
+
+        .profile-info p {
+            margin: 5px 0;
+            color: #666;
+        }
+
+        .details {
+            margin-top: 20px;
+        }
+
+        .details table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .details table,
+        .details th,
+        .details td {
+            border: 1px solid #ddd;
+        }
+
+        .details th,
+        .details td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        .details th {
+            background-color: #f4f4f4;
+        }
+
+        p {
+            text-align: center;
+            color: black;
         }
 
         h1,
         h2 {
             text-align: center;
-            margin-bottom: 20px;
-            color: brown;
         }
 
-        .table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        .table th,
-        .table td {
-            padding: 12px;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .table th {
-            background-color: #e0ffe0;
-            text-align: left;
-        }
-
-        .table tr:hover {
-            background-color: #f1f1f1;
-        }
-
-        .results {
-            display: none;
-        }
-
-        button {
-            background-color: aqua;
-            color: green;
-            font-size: 16px;
-            border: none;
+        .btn {
+            font-size: 1.5em;
             border-radius: 5px;
-            padding: 8px 12px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        button:hover {
+            padding: 10px 20px;
             background-color: #007bff;
             color: white;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
         }
 
         @media (max-width: 768px) {
             .container {
                 padding: 15px;
-                font-size: 16px;
+                font-size: 0.875em;
             }
 
-            h1,
-            h2 {
-                font-size: 24px;
+            .profile-pic {
+                width: 120px;
+                height: 120px;
             }
 
-            button {
-                font-size: 14px;
-                padding: 6px 10px;
+            .details th,
+            .details td {
+                padding: 8px;
+            }
+
+            .btn {
+                font-size: 1.2em;
+                padding: 8px 16px;
             }
         }
 
         @media (max-width: 480px) {
             .container {
                 padding: 10px;
-                font-size: 14px;
+                font-size: 0.75em;
             }
 
-            h1,
-            h2 {
-                font-size: 20px;
+            .profile-pic {
+                width: 100px;
+                height: 100px;
             }
 
-            button {
-                font-size: 12px;
-                padding: 5px 8px;
+            .details th,
+            .details td {
+                padding: 6px;
+            }
+
+            .btn {
+                font-size: 1em;
+                padding: 6px 12px;
             }
         }
     </style>
-    <script>
-        function toggleResults(id) {
-            var x = document.getElementById(id);
-            if (x.style.display === "none") {
-                x.style.display = "table-row";
-            } else {
-                x.style.display = "none";
-            }
-        }
-    </script>
 </head>
 
 <body>
     <div class="container">
-        <h2>1st Semester Courses</h2>
-        <table class="table">
-            <thead>
+        <div class="header">
+            <img src="img/udsm logo.jpg" width="100%" height="auto" alt="UDSM Logo" loading="lazy">
+            <h1>ARIS 3.5 UDSM</h1>
+            <h2>Student Profile</h2>
+        </div>
+        <div class="profile-pic">
+            <img src="img/logo.jpg" alt="Profile Picture">
+        </div>
+        <div class="profile-info">
+            <h2>Zakaria, Joshua Sebastian</h2>
+            <p>ID: 2024-04-11712</p>
+        </div>
+        <div class="details">
+            <h3>1<sup>st</sup> Year (2024/25)</h3>
+            <table>
                 <tr>
-                    <th>S/N</th>
-                    <th>Course Code</th>
-                    <th>Course Title</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>CL 111</td>
-                    <td>Communication Skills</td>
-                    <td><button onclick="toggleResults('results1')">Show Results</button></td>
-                </tr>
-                <tr id="results1" class="results">
-                    <td colspan="4">
-                        Test: 85%, Quiz: 90%, Assignment: 95%
-                    </td>
+                    <th>Current Semester</th>
+                    <td>First Semester</td>
                 </tr>
                 <tr>
+                    <th>Year Type</th>
+                    <td>Normal Year</td>
+                </tr>
+                <tr>
+                    <th>Year Status</th>
+                    <td>In Progress</td>
+                </tr>
+                <tr>
+                    <th>Total Billed (TZS)</th>
+                    <td>157,800.00</td>
+                </tr>
+                <tr>
+                    <th>Total Paid (TZS)</th>
+                    <td>157,800.00</td>
+                </tr>
+                <tr>
+                    <th>Balance (TZS)</th>
+                    <td>0.00</td>
+                </tr>
+                <tr>
+                    <th>Total Semesters</th>
                     <td>2</td>
-                    <td>CS 151</td>
-                    <td>Computer Organization</td>
-                    <td><button onclick="toggleResults('results2')">Show Results</button></td>
-                </tr>
-                <tr id="results2" class="results">
-                    <td colspan="4">
-                        Test: 88%, Quiz: 92%, Assignment: 91%
-                    </td>
                 </tr>
                 <tr>
-                    <td>3</td>
-                    <td>CS 174</td>
-                    <td>Programming in C</td>
-                    <td><button onclick="toggleResults('results3')">Show Results</button></td>
-                </tr>
-                <tr id="results3" class="results">
-                    <td colspan="4">
-                        Test: 78%, Quiz: 85%, Assignment: 89%
-                    </td>
+                    <th>1<sup>st</sup> Semester</th>
+                    <td>Registered</td>
                 </tr>
                 <tr>
-                    <td>4</td>
-                    <td>DS 112</td>
-                    <td>Development Perspectives</td>
-                    <td><button onclick="toggleResults('results4')">Show Results</button></td>
-                </tr>
-                <tr id="results4" class="results">
-                    <td colspan="4">
-                        Test: 92%, Quiz: 88%, Assignment: 90%
-                    </td>
+                    <th>2<sup>nd</sup> Semester</th>
+                    <td>Registered</td>
                 </tr>
                 <tr>
-                    <td>5</td>
-                    <td>IS 162</td>
-                    <td>Introduction to Information</td>
-                    <td><button onclick="toggleResults('results5')">Show Results</button></td>
+                    <th>Registration</th>
+                    <td>Full Year</td>
                 </tr>
-                <tr id="results5" class="results">
-                    <td colspan="4">
-                        Test: 84%, Quiz: 87%, Assignment: 90%
-                    </td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>MT 100</td>
-                    <td>Foundations of Analysis</td>
-                    <td><button onclick="toggleResults('results6')">Show Results</button></td>
-                </tr>
-                <tr id="results6" class="results">
-                    <td colspan="4">
-                        Test: 86%, Quiz: 89%, Assignment: 85%
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <div class="container">
-        <h2>2nd Semester Courses</h2>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>S/N</th>
-                    <th>Course Code</th>
-                    <th>Course Title</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>CS 173</td>
-                    <td>Business Computer Concepts</td>
-                    <td><button onclick="toggleResults('results7')">Show Results</button></td>
-                </tr>
-                <tr id="results7" class="results">
-                    <td colspan="4">
-                        Test: 83%, Quiz: 85%, Assignment: 88%
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>CS 175</td>
-                    <td>Programming in Java</td>
-                    <td><button onclick="toggleResults('results8')">Show Results</button></td>
-                </tr>
-                <tr id="results8" class="results">
-                    <td colspan="4">
-                        Test: 90%, Quiz: 92%, Assignment: 93%
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>DS 113</td>
-                    <td>Development Perspectives</td>
-                    <td><button onclick="toggleResults('results9')">Show Results</button></td>
-                </tr>
-                <tr id="results9" class="results">
-                    <td colspan="4">
-                        Test: 87%, Quiz: 88%, Assignment: 90%
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>IS 143</td>
-                    <td>Discrete Structures</td>
-                    <td><button onclick="toggleResults('results10')">Show Results</button></td>
-                </tr>
-                <tr id="results10" class="results">
-                    <td colspan="4">
-                        Test: 91%, Quiz: 89%, Assignment: 88%
-                    </td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>IS 158</td>
-                    <td>Computer Hardware</td>
-                    <td><button onclick="toggleResults('results11')">Show Results</button></td>
-                </tr>
-                <tr id="results11" class="results">
-                    <td colspan="4">
-                        Test: 85%, Quiz: 88%, Assignment: 90%
-                    </td>
-                </tr>
-                <tr>
-                    <td>6</td>
-                    <td>IS 171</td>
-                    <td>Introduction to Computer</td>
-                    <td><button onclick="toggleResults('results12')">Show Results</button></td>
-                </tr>
-                <tr id="results12" class="results">
-                    <td colspan="4">
-                        Test: 88%, Quiz: 87%, Assignment: 89%
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+            </table>
+            <h2>RESULTS</h2>
+            <p>
+                <a href="semister-wise.html" class="btn">Semester-wise ➔</a>
+            </p>
+            <p>
+                <a href="course-wise.html" class="btn">Course-wise ➔</a>
+            </p>
+        </div>
     </div>
 </body>
 </html>
