@@ -7,23 +7,21 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            font-size: 30px;
-            line-height: 1.5;
+            font-size: 18px; /* Base font size for responsiveness */
+            line-height: 1.6;
             margin: 20px;
         }
         h1 {
-            font-size: 35px;
+            font-size: 32px;
             text-align: center;
         }
         h2 {
-            font-size: 35px;
+            font-size: 28px;
             margin-top: 20px;
         }
-        p {
+        p, li {
             margin: 10px 0;
-        }
-        li {
-            font-size: 30px;
+            font-size: 16px;
         }
         ul {
             margin: 10px 0;
@@ -35,6 +33,36 @@
         }
         a:hover {
             text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+            }
+            h1 {
+                font-size: 28px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+            p, li {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 14px;
+            }
+            h1 {
+                font-size: 24px;
+            }
+            h2 {
+                font-size: 20px;
+            }
+            p, li {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
