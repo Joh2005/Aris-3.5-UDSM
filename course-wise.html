@@ -10,26 +10,25 @@
             margin: 0;
             padding: 0;
             background-color: #f4f4f4;
-            font-size: 24px; /* Increase base font size */
+            font-size: 18px; /* Base font size for responsiveness */
         }
         .header {
             background-color: #007bff;
             color: white;
             padding: 20px 0;
             text-align: center;
-            font-size: 36px; /* Increase header font size */
+            font-size: 32px;
         }
         .container {
             margin: 20px auto;
             background-color: white;
-            padding: 40px;
+            padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 900px; /* Adjust container width */
-            font-size: 30px; /* Increase container font size */
+            max-width: 900px;
         }
         .breadcrumb {
-            font-size: 28px; /* Increase breadcrumb font size */
+            font-size: 16px;
             margin-bottom: 20px;
         }
         .breadcrumb a {
@@ -40,7 +39,7 @@
             text-decoration: underline;
         }
         .results-header {
-            font-size: 40px; /* Increase results header font size */
+            font-size: 24px;
             margin-bottom: 20px;
             text-align: center;
         }
@@ -48,17 +47,61 @@
             margin-bottom: 20px;
         }
         .results-section h3 {
-            font-size: 32px; /* Increase section header font size */
+            font-size: 20px;
             margin-bottom: 10px;
         }
         .results-section p {
-            font-size: 28px; /* Increase paragraph font size */
+            font-size: 16px;
             color: #555;
             margin: 5px 0;
         }
         .no-results {
             color: red;
             font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                font-size: 28px;
+            }
+            .container {
+                padding: 15px;
+                font-size: 16px;
+            }
+            .breadcrumb {
+                font-size: 14px;
+            }
+            .results-header {
+                font-size: 22px;
+            }
+            .results-section h3 {
+                font-size: 18px;
+            }
+            .results-section p {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                font-size: 24px;
+            }
+            .container {
+                padding: 10px;
+                font-size: 14px;
+            }
+            .breadcrumb {
+                font-size: 12px;
+            }
+            .results-header {
+                font-size: 20px;
+            }
+            .results-section h3 {
+                font-size: 16px;
+            }
+            .results-section p {
+                font-size: 12px;
+            }
         }
     </style>
 </head>
