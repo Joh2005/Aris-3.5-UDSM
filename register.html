@@ -15,6 +15,8 @@
             margin: 0;
             flex-direction: column;
             overflow: hidden; /* Prevent scrollbar for confetti */
+            padding: 20px;
+            box-sizing: border-box;
         }
         .welcome-message {
             font-size: 36px;
@@ -59,21 +61,43 @@
                 opacity: 0;
             }
         }
-        .introduction {
-            font-size: 36px;
-            color: #333;
-            text-align: center;
-            text-transform: uppercase;
+        img {
+            max-width: 100%;
+            height: auto;
             margin-bottom: 20px;
+        }
+        @media (max-width: 768px) {
+            .welcome-message {
+                font-size: 28px;
+            }
+            .kind-words {
+                font-size: 20px;
+            }
+            .button-link {
+                font-size: 18px;
+                padding: 12px 24px;
+            }
+        }
+        @media (max-width: 480px) {
+            .welcome-message {
+                font-size: 24px;
+            }
+            .kind-words {
+                font-size: 18px;
+            }
+            .button-link {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
         }
     </style>
 </head>
 <body>
     <div class="welcome-message">Welcome to University of Dar es Salaam</div>
-    <img src="img/udsm logo.jpg" width="1000" height="500" alt="image" loading="lazy">
-    <div class="kind-words">You are the student of university of Dar es salaam (UDSM)</div>
+    <img src="img/udsm logo.jpg" alt="UDSM Logo" loading="lazy">
+    <div class="kind-words">You are a student of the University of Dar es Salaam (UDSM)</div>
     <div class="kind-words">We're thrilled to have you join the ARIS 3.5 community. Your journey here will be filled with exciting opportunities and unforgettable experiences. Let's make the most of it together!</div>
-    <a href="aris.html" class="button-link"> WELCOME ARIS 3.5 UDSM ➔</a>
+    <a href="aris.html" class="button-link">WELCOME ARIS 3.5 UDSM ➔</a>
 
     <script>
         // Generate confetti
