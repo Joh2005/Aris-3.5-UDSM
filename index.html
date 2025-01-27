@@ -36,6 +36,7 @@
 
         .form-group {
             margin-bottom: 20px;
+            position: relative; /* Add relative positioning to the form group */
         }
 
         .form-group input {
@@ -146,9 +147,9 @@
         <h2>Login to your ARIS 3.5 account</h2>
         <h4 style="color : #666666">Your credentials</h4>
 
-        <div class="error-message" id="error-message">Error message here</div>
+        <div class="error-message" id="error-message"></div>
 
-        <form id="login-form">
+        <form id="login-form" onsubmit="login(event)">
             <div class="form-group">
                 <input type="text" id="username" placeholder="Username/Email" required>
                 <span class="eye-icon"></span>
@@ -160,11 +161,11 @@
             <div class="forgot-password">
                 <p><a href="forgot-password.html">Forgot password?</a></p>
             </div>
-            <a href="dashboard.html" class="btn" onclick="login(event)">Login</a>
+            <button type="submit" class="btn">Login</button>
         </form>
 
         <div class="login-footer">
-            <p>Don't have an account? <a href="info.html" class="btn" onclick="signUp()">Sign Up</a></p>
+            <p>Don't have an account? <a href="info.html" class="btn">Sign Up</a></p>
         </div>
 
         <div class="terms">
@@ -208,6 +209,7 @@
                 errorMessage.style.display = 'block';
             } else {
                 // Redirect to the dashboard.html page if validation passes
+                alert("Successfully logged in!");
                 window.location.href = 'dashboard.html';
             }
         }
