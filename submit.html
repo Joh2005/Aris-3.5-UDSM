@@ -1,243 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="Author" content="joh">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> aris3.5.udsm.ac.tz </title>
-    <link rel="icon" href="udsm logo.jpg" type="image/x-icon">
+    <title>Password Recovery</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #ffe6f0;
+            background-color: pink;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            font-size: 16px; /* Base font size for responsiveness */
+            padding: 20px;
         }
-
-        .login-container {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 30px;
-            box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1);
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            text-align: center;
             width: 100%;
             max-width: 500px;
-            text-align: center;
+            font-size: 1em;
         }
-
-        h2 {
-            margin-bottom: 20px;
-            color: #333;
-        }
-
         .form-group {
             margin-bottom: 20px;
-            position: relative; /* Add relative positioning to the form group */
         }
-
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 1em;
+        }
         .form-group input {
             width: 100%;
-            padding: 12px;
+            padding: 10px;
             box-sizing: border-box;
-            border: 2px solid #ddd;
-            border-radius: 6px;
-            font-size: 18px;
-            background-color: #fafafa;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
-
-        .form-group input:focus {
-            border-color: #3f8efc;
-            outline: none;
+        .logo {
+            width: 100px;
+            margin-bottom: 20px;
         }
-
-        .btn {
-            background-color: #3f8efc;
-            color: white;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            width: 100%;
+        .message {
+            background-color: #d4edda;
+            color: #155724;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
         }
-
-        .btn:hover {
-            background-color: #3379d1;
+        .error-message {
+            color: red;
+            margin-bottom: 20px;
+            display: none;
         }
-
-        .eye-icon {
+        .icon {
+            font-size: 50px;
+            color: #ff6f00;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            position: relative;
+        }
+        .input-group input {
+            width: calc(100% - 30px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding-right: 30px; /* Space for the icon */
+            font-size: 1em;
+        }
+        .input-group span {
+            font-size: 1em;
+            color: #ff6f00;
             position: absolute;
             right: 10px;
             top: 50%;
             transform: translateY(-50%);
+        }
+        .submit-btn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
             cursor: pointer;
-            font-size: 20px;
         }
-
-        .forgot-password,
-        .login-footer,
-        .terms {
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .forgot-password a,
-        .terms a {
-            font-size: 16px;
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        .forgot-password a:hover,
-        .terms a:hover {
-            text-decoration: underline;
-        }
-
-        .error-message {
-            color: red;
-            margin-bottom: 10px;
-            display: none;
+        .submit-btn:hover {
+            background-color: #0056b3;
         }
 
         @media (max-width: 600px) {
-            .login-container {
-                padding: 20px;
+            .container {
+                padding: 15px;
+                font-size: 0.8em;
             }
-
-            .form-group input,
-            .btn {
-                font-size: 16px;
+            .icon {
+                font-size: 40px;
             }
-
-            .forgot-password a,
-            .terms a {
-                font-size: 14px;
+            .submit-btn {
+                font-size: 0.8em;
             }
         }
 
         @media (max-width: 400px) {
-            .login-container {
-                padding: 15px;
-            }
-
-            .form-group input,
-            .btn {
-                font-size: 14px;
+            .container {
                 padding: 10px;
+                font-size: 0.7em;
             }
-
-            .forgot-password a,
-            .terms a {
-                font-size: 12px;
+            .icon {
+                font-size: 30px;
+            }
+            .submit-btn {
+                font-size: 0.7em;
             }
         }
     </style>
 </head>
-
 <body>
-    <div class="login-container">
-        <img src="img/udsm logo.jpg" alt="UDSM Logo" style="width: 100%; max-width: 200px;">
-        <h2>Login to your ARIS 3.5 account</h2>
-        <h4 style="color : #666666">Your credentials</h4>
-
-        <div class="error-message" id="error-message"></div>
-
-        <form id="login-form" onsubmit="login(event)">
-            <div class="form-group">
-                <input type="text" id="username" placeholder="Username/Email" required>
-                <span class="eye-icon"></span>
+    <div class="container">
+        <div class="message">
+            Your verification code will be sent to your Email Address shortly!
+        </div>
+        <div class="error-message" id="error-message">Please try again!</div>
+        <div class="icon">#</div>
+        <h2>Password recovery</h2>
+        <p>2/4 User Confirmation</p>
+        <form id="code-form" method="post" action="recovery.html">
+            <div class="input-group">
+                <input type="text" id="code" placeholder="Your 5 digit code" required>
+                <span>#</span>
             </div>
-            <div class="form-group">
-                <input type="password" id="password" placeholder="Password" required>
-                <span class="eye-icon"></span>
+            <div class="input-group">
+                <input type="email" id="email" placeholder="Enter your email" required>
             </div>
-            <div class="form-group">
-                <input type="email" id="email" placeholder="Email" required>
-                <span class="eye-icon"></span>
-            </div>
-            <div class="form-group">
-                <input type="text" id="code" placeholder="Enter code" required>
-                <span class="eye-icon"></span>
-            </div>
-            <div class="forgot-password">
-                <p><a href="forgot-password.html">Forgot password?</a></p>
-            </div>
-            <button type="submit" class="btn">Login</button>
+            <button type="submit" class="submit-btn" onclick="validateForm(event)">Submit Code ➔</button>
         </form>
-
-        <div class="login-footer">
-            <p>Don't have an account? <a href="info.html" class="btn">Sign Up</a></p>
-        </div>
-
-        <div class="terms">
-            <p style="color:#333">If you are confirming, you should read our
-                <a href="Terms.html">Terms & Conditions</a> and
-                <a href="Cookie.html">Cookie Policy.</a>
-            </p>
-        </div>
-        <p>@2025 ARIS UDSM login. All Rights Reserved.</p>
     </div>
 
     <script>
-        function togglePassword() {
-            const passwordInput = document.getElementById('password');
-            const eyeOpen = document.getElementById('eye-open');
-            const eyeClosed = document.getElementById('eye-closed');
+        function validateForm(event) {
+            event.preventDefault(); // Prevent the default form submission
 
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                eyeOpen.style.display = 'none';
-                eyeClosed.style.display = 'inline-block';
-            } else {
-                passwordInput.type = 'password';
-                eyeOpen.style.display = 'inline-block';
-                eyeClosed.style.display = 'none';
-            }
-        }
-
-        function login(event) {
-            event.preventDefault();
-
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const email = document.getElementById('email').value;
             const code = document.getElementById('code').value;
+            const email = document.getElementById('email').value;
             const errorMessage = document.getElementById('error-message');
 
-            if (!validateUsername(username)) {
-                errorMessage.textContent = "Username must be a valid email address or registration number in the form xxxx-xx-xxxxx.";
-                errorMessage.style.display = 'block';
-            } else if (!validatePassword(password)) {
-                errorMessage.textContent = "The password should contain at least 8 characters, the first letter should be a capital letter, and include at least one digit.";
-                errorMessage.style.display = 'block';
-            } else {
+            if (validateEmail(email) && validateCode(code)) {
                 // Redirect to the recovery.html page if validation passes
-                alert("Successfully logged in!");
                 window.location.href = 'recovery.html';
+            } else {
+                // Show error message if validation fails
+                errorMessage.style.display = 'block';
             }
         }
 
-        function validateUsername(username) {
-            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            const regNumberPattern = /^\d{4}-\d{2}-\d{5}$/;
-            return emailPattern.test(username) || regNumberPattern.test(username);
+        function validateEmail(email) {
+            const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return re.test(String(email).toLowerCase());
         }
 
-        function validatePassword(password) {
-            const hasUpperCase = /^[A-Z]/.test(password);
-            const hasDigit = /\d/.test(password);
-            const isValidLength = password.length >= 8;
-            return hasUpperCase && hasDigit && isValidLength;
+        function validateCode(code) {
+            const re = /^\d{5}$/; // Example: expects a 5-digit code
+            return re.test(String(code));
         }
     </script>
-
 </body>
-
 </html>
