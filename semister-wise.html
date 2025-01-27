@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,25 +13,24 @@
             align-items: center;
             min-height: 100vh;
             margin: 0;
-            padding: 20px;
-            box-sizing: border-box;
+            padding: 10px;
         }
 
         .container {
             background-color: white;
-            padding: 20px;
-            border-radius: 30px;
+            padding: 2rem;
+            border-radius: 1rem;
             box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
             width: 100%;
-            max-width: 1000px;
-            font-size: 1em;
+            max-width: 600px;
+            font-size: 1rem;
+            box-sizing: border-box;
         }
 
-        h1,
-        h2 {
+        h1, h2 {
             text-align: center;
-            margin-bottom: 20px;
+            margin-bottom: 1rem;
             color: brown;
         }
 
@@ -41,9 +39,8 @@
             border-collapse: collapse;
         }
 
-        .table th,
-        .table td {
-            padding: 12px;
+        .table th, .table td {
+            padding: 0.75rem;
             border-bottom: 1px solid #ddd;
         }
 
@@ -63,50 +60,22 @@
         button {
             background-color: aqua;
             color: green;
-            font-size: 1em;
+            font-size: 1rem;
             border: none;
-            border-radius: 5px;
-            padding: 8px 12px;
+            padding: 0.5rem 1rem;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            border-radius: 0.5rem;
         }
 
-        button:hover {
-            background-color: #007bff;
-            color: white;
-        }
-
-        @media (max-width: 768px) {
+        @media (max-width: 600px) {
             .container {
-                padding: 15px;
-                font-size: 0.875em;
-            }
-
-            h1,
-            h2 {
-                font-size: 1.5em;
+                padding: 1rem;
+                font-size: 0.875rem;
             }
 
             button {
-                font-size: 0.875em;
-                padding: 6px 10px;
-            }
-        }
-
-        @media (max-width: 350px) {
-            .container {
-                padding: 10px;
-                font-size: 0.50em;
-            }
-
-            h1,
-            h2 {
-                font-size: 1.25em;
-            }
-
-            button {
-                font-size: 0.75em;
-                padding: 5px 8px;
+                font-size: 0.875rem;
+                padding: 0.5rem;
             }
         }
     </style>
@@ -121,10 +90,9 @@
         }
     </script>
 </head>
-
 <body>
     <div class="container">
-        <h2>1st Semester Courses</h2>
+        <h2>Course List</h2>
         <table class="table">
             <thead>
                 <tr>
@@ -135,10 +103,11 @@
                 </tr>
             </thead>
             <tbody>
+                <h1>1st Semester Courses</h1>
                 <tr>
                     <td>1</td>
                     <td>CL 111</td>
-                    <td>Communication Skills</td>
+                    <td>Communication Skills for</td>
                     <td><button onclick="toggleResults('results1')">Show Results</button></td>
                 </tr>
                 <tr id="results1" class="results">
@@ -193,7 +162,7 @@
         </table>
     </div>
     <div class="container">
-        <h2>2nd Semester Courses</h2>
+        <h2>Course List</h2>
         <table class="table">
             <thead>
                 <tr>
@@ -204,6 +173,7 @@
                 </tr>
             </thead>
             <tbody>
+                <h1>2nd Semester Courses</h1>
                 <tr>
                     <td>1</td>
                     <td>CS 173</td>
@@ -243,7 +213,7 @@
                 <tr>
                     <td>5</td>
                     <td>IS 158</td>
-                    <td>Computer Hardware</td>
+                    <td>Computer Hardware and</td>
                     <td><button onclick="toggleResults('results11')">Show Results</button></td>
                 </tr>
                 <tr id="results11" class="results">
@@ -257,6 +227,15 @@
                 </tr>
                 <tr id="results12" class="results">
                     <td colspan="4">Test: 88%, Quiz: 87%, Assignment: 89%</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>IS 181</td>
+                    <td>Web Programming</td>
+                    <td><button onclick="toggleResults('results13')">Show Results</button></td>
+                </tr>
+                <tr id="results13" class="results">
+                    <td colspan="4">Test: 92%, Quiz: 91%, Assignment: 94%</td>
                 </tr>
             </tbody>
         </table>
